@@ -8,7 +8,21 @@ import org.junit.Test;
 public class DemoTest {
     @Test
     public void test() {
+        int[] nums1 = {1, 2, 3, 0, 0, 0};
+        int[] nums2 = {2, 5, 6};
+        int m = 3;
+        int n = 3;
+//        merge(nums1, m, nums2, n);
+//        flip(nums1);
+    }
 
+    public void flip(int[] ints) {
+        for (int i = 0; i < ints.length / 2; i++) {
+            int temp = ints[i];
+            ints[i] = ints[ints.length - 1 - i];
+            ints[ints.length - 1 - i] = temp;
+        }
+        System.out.println(ints);
     }
 
     /**
@@ -23,6 +37,10 @@ public class DemoTest {
      * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
      */
     public void merge(int[] nums1, int m, int[] nums2, int n) {
-
+        int i = m-- + --n;
+        while (n >= 0) {
+            nums1[i--] = m >= 0 && nums1[m] > nums2[n] ? nums1[m--] : nums2[n--];
+        }
+        System.out.println(nums1);
     }
 }
