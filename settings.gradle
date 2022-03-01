@@ -1,0 +1,6 @@
+rootProject.name = "codelabs"
+include ':app'
+include ':lAnrCrash'
+include ':base'
+include ':common'
+include ':lNetWork'

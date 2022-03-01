@@ -1,0 +1,23 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    apply from: 'version.gradle'
+    addRepos(repositories)
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.2.1"
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.4.30'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.3.5"
+
+        //hilt和kotlin版本有冲突，导致编译不过 kotlin要降为1.4.30。
+        //        classpath "com.google.dagger:hilt-android-gradle-plugin:2.33-beta"
+    }
+}
+
+allprojects {
+    addRepos(repositories)
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

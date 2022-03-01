@@ -1,0 +1,46 @@
+def build_version = [:]
+build_version.compileSdkVersion = 30
+build_version.buildToolsVersion = "30.0.3"
+build_version.minSdkVersion = 21
+build_version.targetSdkVersion = 30
+build_version.versionCode = 00100
+build_version.versionName = "0.0.1"
+ext.build_version = build_version
+
+def app = [:]
+app.applicationId = 'com.bob.codeLabs'
+ext.app = app
+
+def lib = [:]
+//基础库
+//lib.hilt = 'com.google.dagger:hilt-android:2.33-beta'
+//lib.hiltCompiler = 'com.google.dagger:hilt-android-compiler:2.33-beta'
+lib.kotlin = 'org.jetbrains.kotlin:kotlin-stdlib:1.4.30'
+lib.kotlinAndroid = 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.0'
+//lib.kotlinCore = 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.10'
+lib.lifecycleRuntime = 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'
+lib.lifecycleViewmodel = 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
+lib.coreKTX = 'androidx.core:core-ktx:1.3.1'
+lib.activityKTX = 'androidx.activity:activity-ktx:1.3.1'
+lib.appcompat = 'androidx.appcompat:appcompat:1.2.0'
+lib.material = 'com.google.android.material:material:1.2.1'
+lib.constraintlayout = 'androidx.constraintlayout:constraintlayout:2.0.1'
+lib.navigationFragment = 'androidx.navigation:navigation-fragment-ktx:2.3.5'
+lib.navigationUI = 'androidx.navigation:navigation-ui-ktx:2.3.5'
+lib.room = 'androidx.room:room-runtime:2.2.5'
+lib.roomKtx = 'androidx.room:room-ktx:2.2.5'
+lib.roomCompiler = 'androidx.room:room-compiler:2.2.5'
+//三方
+lib.logger = 'com.orhanobut:logger:2.2.0'
+lib.retrofit = 'com.squareup.retrofit2:retrofit:2.7.0'
+lib.retrofitGson = 'com.squareup.retrofit2:converter-gson:2.7.0'
+lib.okHttpLogging = 'com.squareup.okhttp3:logging-interceptor:4.3.0'
+ext.lib = lib
+
+static def addRepos(RepositoryHandler handler) {
+    handler.maven { url 'https://maven.aliyun.com/repository/public/' }
+    handler.mavenCentral()
+    handler.google()
+}
+
+ext.addRepos = this.&addRepos
