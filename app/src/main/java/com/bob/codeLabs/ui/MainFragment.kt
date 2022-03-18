@@ -1,10 +1,12 @@
 package com.bob.codeLabs.ui
 
+import android.content.Intent
 import androidx.navigation.findNavController
 import com.bob.base.mvvm.MVVMFragment
 import com.bob.codeLabs.R
 import com.bob.codeLabs.databinding.FragmentMainBinding
 import com.bob.codeLabs.handlerThread.SingleThreadTask
+import com.bob.codeLabs.hookActivity.HookTestActivity
 
 /**
  * created by cly on 2022/1/7
@@ -25,6 +27,9 @@ class MainFragment : MVVMFragment<FragmentMainBinding>() {
         }
         mBinding.btnNet.setOnClickListener {
             it.findNavController().navigate(MainFragmentDirections.actionMainFragmentToNetWorkDemoFragment())
+        }
+        mBinding.btnHookActivity.setOnClickListener {
+            requireActivity().startActivity(Intent(context, HookTestActivity::class.java))
         }
     }
 }
